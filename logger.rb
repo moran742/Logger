@@ -8,7 +8,7 @@ def get_word(word)
 	end
 end
 
-unless ARGV.length == 3
+unless ARGV.length == 2
 	puts "You need to enter 2 words to search for until I fix this script"
 	exit
 end
@@ -18,7 +18,4 @@ puts "The following " + ARGV[1].upcase + " were found:"
 puts "-----------------------------------"
 get_word(ARGV[1])
 puts
-puts "-----------------------------------"
-puts "The following " + ARGV[2].upcase + " were found:"
-puts "-----------------------------------"
-get_word(ARGV[2])
+puts
