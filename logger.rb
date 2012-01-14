@@ -1,6 +1,7 @@
 def get_word(word)
 	x =[]
-	File.open(ARGV[0]).collect do |line|
+	file_contents = File.open(ARGV[0])
+	file_contents.collect do |line|
 		if line.downcase.match(word)
 			x.push(line)
 			puts x.length.to_s + ". " + line
@@ -10,18 +11,19 @@ end
 
 def find_word(words)
 	words.collect do |word|
-	puts "-----------------------------------"
-	puts "The following line(s) were found that contain \"" + word.upcase + "\":"
-	puts "-----------------------------------"
-	get_word(word)
-	puts
-	puts
+		puts
+		puts "-----------------------------------"
+		puts "The following line(s) were found that contain \"" + word.upcase + "\":"
+		puts "-----------------------------------"
+		puts
+		get_word(word)
+		puts
+		puts
 	end
 end
 
-# ####BEGININING OF SCRIPT
+####BEGININING OF SCRIPT####
 words_to_find = ARGV.drop(1)
-words_to_find.collect { |word| puts word }
 if words_to_find.length == 0
 	puts "Help section coming soon!"
 	exit
