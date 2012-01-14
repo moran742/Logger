@@ -11,7 +11,7 @@ end
 def find_word(words)
 	words.collect do |word|
 	puts "-----------------------------------"
-	puts "The following line(s) were found that contain " + word.upcase + ":"
+	puts "The following line(s) were found that contain \"" + word.upcase + "\":"
 	puts "-----------------------------------"
 	get_word(word)
 	puts
