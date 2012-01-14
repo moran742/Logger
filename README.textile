@@ -1,3 +1,6 @@
 h1. Logger
 
-Documentation to follow
+h3. Usage:
+<pre>
+  ruby logger.rb fileToParse.log wordToLookFor anotherWordToLookFor
+</pre
