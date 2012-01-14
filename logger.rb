@@ -1,6 +1,6 @@
 def get_word(word)
 	x =[]
-	logFile = File.open(ARGV[0]).collect do |line|
+	File.open(ARGV[0]).collect do |line|
 		if line.downcase.match(word)
 			x.push(line)
 			puts x.length.to_s + ". " + line
@@ -8,14 +8,23 @@ def get_word(word)
 	end
 end
 
-unless ARGV.length == 2
-	puts "You need to enter 2 words to search for until I fix this script"
-	exit
+def find_word(words)
+	words.collect do |word|
+	puts "-----------------------------------"
+	puts "The following line(s) were found that contain " + word.upcase + ":"
+	puts "-----------------------------------"
+	get_word(word)
+	puts
+	puts
+	end
 end
 
-puts "-----------------------------------"
-puts "The following " + ARGV[1].upcase + " were found:"
-puts "-----------------------------------"
-get_word(ARGV[1])
-puts
-puts
+# ####BEGININING OF SCRIPT
+words_to_find = ARGV.drop(1)
+words_to_find.collect { |word| puts word }
+if words_to_find.length == 0
+	puts "Help section coming soon!"
+	exit
+else
+	find_word(words_to_find)
+end
